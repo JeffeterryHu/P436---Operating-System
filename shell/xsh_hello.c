@@ -7,4 +7,15 @@
 #include <stdio.h>
 #include <string.h>
 
+shellcmd xsh_hello(int nargs, char *args[]){
+	
+	char ss[50];
+	scanf(" %s", ss);
 
+	if (ss != "\0"){
+		printf("%s, Welcome to the world of Xinu!!\n", ss);
+	}else{
+	printf("Sorry, wrong entry.");
+	}
+	return 0;
+}

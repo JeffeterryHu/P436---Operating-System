@@ -1,0 +1,11 @@
+/* Report for Assignment 1 */
+
+1. What is Orphan and Zombie processes?
+
+	Orphan is a child process that continues to execute after its parent has finished execution or died
+
+	Zombie process is a process that has completed execution but still has an entry in the process table
+
+2. What are the changes that occur when the child process calls the exec system call to execute a new program?
+
+	This will replace the entire current process with a new program which will load into the current space
