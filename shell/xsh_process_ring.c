@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 
-shellcmd process_ring(int args, char *args[]){
+shellcmd process_ring(int args, char *argv[]){
 	int value;
 	int proc;
 	int round = 0;
@@ -34,6 +34,6 @@ shellcmd process_ring(int args, char *args[]){
 		printf("Error!");
 	}
 
-	
+		
 	
 }
