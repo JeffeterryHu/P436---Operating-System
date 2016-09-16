@@ -6,15 +6,34 @@
 #include <stdio.h>
 #include <string.h>
 
-shellcmd process_ring(int nargs, char *args[]){
-	int countdown;
+shellcmd process_ring(int args, char *args[]){
+	int value;
 	int proc;
-	int round;
-	if(...){
-		printf("Ring Element %d" + " : " + "Round %d" + " : " + "Value : %d\n");
-		proc++;
-		
+	int round = 0;
+	int count = 0;
+	int n;	
+	int m;
+
+	while(1){
+		printf("Number of processes : %d\n");
+		scanf("%d", &n);
+		printf("Number of rounds : %d\n");
+		scanf("%d", &m); 
+	}	
+	
+	for(proc = 0, proc < 4, proc++){
+		printf("Ring Element %d : Round %d : Value : %d\n", proc, round, value);
+		if(proc = 3){
+			proc = 0;
+			count++;
+			value--;
+		}
+	}
+	
+	if(args ! = 2){
+		printf("Error!");
 	}
 
+	
 	
 }
