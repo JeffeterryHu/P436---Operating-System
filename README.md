@@ -1,5 +1,5 @@
-# Fall 2016
+# Welcome to Xinu
 
-Welcome to Operating Systems!
+# Build instructions
 
-Check out the [wiki](https://github.iu.edu/SOIC-Operating-Systems/P436-F16/wiki)!
+Copy the file config/Makedefs.EXAMPLE to config/Makedefs and make appropriate changes if necessary.
