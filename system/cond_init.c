@@ -4,6 +4,6 @@
 
 #include <xinu.h>
 
-syscall cond_init(cond_t *cv){
+syscall cond_init(cond_t* cv){
   *cv = 0;
 }

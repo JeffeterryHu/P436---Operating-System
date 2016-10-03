@@ -6,7 +6,7 @@
 
 mutex_t lock;
 
-syscall test_and_set(mutex_t *lock){
+syscall test_and_set(mutex_t* lock){
   intmask mask;
   mask = disable();
   mutex_t pre;
