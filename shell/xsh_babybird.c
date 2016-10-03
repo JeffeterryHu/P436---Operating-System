@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+mutex_t lock;
 cond_t time_to_fetch;
 cond_t dish_empty;
 int babybird,eats,refill,worm_num,round = 0;
@@ -18,7 +19,7 @@ void BabyBirdEat(int which_baby, int currently_eaten){
     cond_wait(&dish_empty, &lock);
     currently_eaten += 1;
     worm_num -= 1;
-    printf("Baby bird %d ate a worm! (%d total)", which_baby, currently_eaten);
+    printf("Baby bird %d ate a worm! (%d total)\n", which_baby, currently_eaten);
 
     if(worm_num == 0){
       cond_signal(&time_to_fetch);
@@ -54,7 +55,7 @@ void ParentFetch(int num_of_fetch){
     }
     worm_num = refill;
     num_of_fetch += 1;
-    printf("Parent bird filled the dish with %d worms!", worm_num);
+    printf("Parent bird filled the dish with %d worms!\n", worm_num);
     cond_signal(&dish_empty);
     mutex_unlock(&lock);
   }
@@ -67,6 +68,10 @@ shellcmd xsh_babybird(int nargs, char *args[]){
   int num_eat_worms;
   int bbs[num_baby_birds];
   int i = 0;
+  //num_fetch_worms = refill;
+  //num_eat_worms = eats;
+  //num_baby_birds = babybird;
+
   refill = num_fetch_worms;
   eats = num_eat_worms;
   babybird = num_baby_birds;
