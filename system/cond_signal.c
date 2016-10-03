@@ -5,5 +5,5 @@
 #include <xinu.h>
 
 syscall cond_signal(cond_t* cv){
-  *cv = 0;
+  *cv = 1;
 }

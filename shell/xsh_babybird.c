@@ -7,9 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-mutex_lock;
-cond time_to_fetch;
-cond dish_empty;
+cond_t time_to_fetch;
+cond_t dish_empty;
 int babybird,eats,refill,worm_num,round = 0;
 
 void BabyBirdEat(int which_baby, int currently_eaten){
@@ -41,7 +40,7 @@ void BabyBirdEat(int which_baby, int currently_eaten){
       break;
     }
   }
-  return 0;
+  return;
 }
 
 void ParentFetch(int num_of_fetch){
@@ -59,7 +58,7 @@ void ParentFetch(int num_of_fetch){
     cond_signal(&dish_empty);
     mutex_unlock(&lock);
   }
-  return 0;
+  return;
 }
 
 shellcmd xsh_babybird(int nargs, char *args[]){

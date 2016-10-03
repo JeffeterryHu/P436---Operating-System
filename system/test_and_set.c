@@ -4,14 +4,12 @@
 
 #include <xinu.h>
 
-mutex_t lock;
-
 syscall test_and_set(mutex_t* lock){
   intmask mask;
   mask = disable();
-  mutex_t pre;
-  pre = *lock;
+  mutex_t prev;
+  prev = *lock;
   *lock = 1; //1 means lock is being held
   restore(mask);
-  return(pre);
+  return(prev);
 }
