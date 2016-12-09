@@ -155,6 +155,11 @@ struct	lflcblk	{			/* Local file control block	*/
 					/*   outside lfdblock		*/
 	bool8	lfibdirty;		/* Has lfiblock changed?	*/
 	bool8	lfdbdirty;		/* Has lfdblock changed?	*/
+
+	//assignment 7
+	pid PIDwhateverfile;
+	//////////
+
 };
 
 extern	struct	lfdata	Lf_data;

@@ -174,6 +174,11 @@ devcall	lfsopen (
 	lfptr->lfibdirty = FALSE;
 	lfptr->lfdbdirty = FALSE;
 
+	//assignment 7
+	lfptr->PIDwhateverfile = currpid;
+
+	///////////////
+
 	signal(Lf_data.lf_mutex);
 
 	return lfptr->lfdev;

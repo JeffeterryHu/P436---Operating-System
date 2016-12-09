@@ -14,12 +14,28 @@ syscall	kill(
 	struct	procent *prptr;		/* Ptr to process' table entry	*/
 	int32	i;			/* Index into descriptors	*/
 
+	//assignment 7
+	int32 nnum;
+	struct lflcblk *lfptr;
+	/////////////////
+
 	mask = disable();
 	if (isbadpid(pid) || (pid == NULLPROC)
 	    || ((prptr = &proctab[pid])->prstate) == PR_FREE) {
 		restore(mask);
 		return SYSERR;
 	}
+
+	//assignment 7
+	for(nnum = 0; nnum < Nlfl; nnum++){
+		lfptr = &lfltab[nnum];
+		if(lfptr->lfstate == LF_USED){
+			if(lfptr->PIDwhateverfile == pid){
+				lflclose(&devtab[lfptr->lfdev]);
+			}
+		}
+	}
+	//////////////////////
 
 	if (--prcount <= 1) {		/* Last user process completes	*/
 		xdone();
@@ -30,6 +46,12 @@ syscall	kill(
 		close(prptr->prdesc[i]);
 	}
 	freestk(prptr->prstkbase, prptr->prstklen);
+
+	//assignment 7
+	for(i = 0; i < sizeof(lfltab); i++){
+		lflclose(lfltab[i]);
+	}
+	/////////
 
 	switch (prptr->prstate) {
 	case PR_CURR:
