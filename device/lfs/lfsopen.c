@@ -176,7 +176,6 @@ devcall	lfsopen (
 
 	//assignment 7
 	lfptr->PIDwhateverfile = currpid;
-
 	///////////////
 
 	signal(Lf_data.lf_mutex);

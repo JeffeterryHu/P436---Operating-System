@@ -16,7 +16,7 @@ syscall	kill(
 
 	//assignment 7
 	int32 nnum;
-	struct lflcblk *lfptr;
+	struct lflcblk *lfptr;     /* Pointer to the control block entry */
 	/////////////////
 
 	mask = disable();
@@ -28,10 +28,10 @@ syscall	kill(
 
 	//assignment 7
 	for(nnum = 0; nnum < Nlfl; nnum++){
-		lfptr = &lfltab[nnum];
-		if(lfptr->lfstate == LF_USED){
+		lfptr = &lfltab[nnum]; /* initialize the local file pseudo-device */
+		if(lfptr->lfstate == LF_USED){  /* determine if the slave device is in use */
 			if(lfptr->PIDwhateverfile == pid){
-				lflclose(&devtab[lfptr->lfdev]);
+				lflclose(&devtab[lfptr->lfdev]);  /* ptr to deviceID */
 			}
 		}
 	}
@@ -47,11 +47,6 @@ syscall	kill(
 	}
 	freestk(prptr->prstkbase, prptr->prstklen);
 
-	//assignment 7
-	for(i = 0; i < sizeof(lfltab); i++){
-		lflclose(lfltab[i]);
-	}
-	/////////
 
 	switch (prptr->prstate) {
 	case PR_CURR:

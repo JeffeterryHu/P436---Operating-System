@@ -157,7 +157,7 @@ struct	lflcblk	{			/* Local file control block	*/
 	bool8	lfdbdirty;		/* Has lfdblock changed?	*/
 
 	//assignment 7
-	pid PIDwhateverfile;
+	pid32 PIDwhateverfile;
 	//////////
 
 };
