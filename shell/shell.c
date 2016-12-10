@@ -25,7 +25,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"?",		FALSE,	xsh_help},
 	{"test_mmu", 	FALSE, 	xsh_mmu},
 	{"hello",	FALSE,	xsh_hello},
-	{"process_ring",FALSE,	xsh_process_ring}
+	{"process_ring",	FALSE, xsh_process_ring}
 
 };
 

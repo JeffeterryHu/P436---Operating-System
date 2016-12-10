@@ -9,6 +9,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+// two different versions regarding the process_ring
+
+/*
 // this version of counting_down doesn't work, only prints one value
 void counting_down(int current_proc, int round, int proc, int arr[], int pid[]){
 	int current_round = 0;
@@ -25,8 +28,28 @@ void counting_down(int current_proc, int round, int proc, int arr[], int pid[]){
 		}
 	}
 }
+*/
 
-shellcmd process_ring(int nargs, char *args[]){
+// another version
+void counting_down(int current_proc, int round, int proc, int arr[], int pid[]){
+	int current_round = 0;
+	while(current_round < round){
+		printf("Ring Element %d : Round %d : Value : %d\n", current_proc, current_round, arr[current_proc]);
+		if(current_proc + 1< proc){
+		  arr[current_proc + 1] = arr[current_proc] - 1;
+		}
+		else{
+		  arr[0] = arr[current_proc] - 1;
+		}
+		if(current_proc < proc - 1){
+		  resume(pid[current_proc + 1]);
+			current_round++;
+		}
+	}
+}
+
+
+shellcmd xsh_process_ring(int nargs, char *args[]){
 	int32 value = 0;
 	int32 proc = 4;
 	int32 round = 5;
