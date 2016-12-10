@@ -1,4 +1,4 @@
-# set the plaform to arm-qemu, arm-bbb, etc.
+XC# set the plaform to arm-qemu, arm-bbb, etc.
 PLATFORM=arm-qemu
 
 # COMPILER_ROOT and LIBGCC_LOC are for the cross compiler

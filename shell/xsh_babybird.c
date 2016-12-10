@@ -17,9 +17,9 @@ void BabyBirdEat(int which_baby, int currently_eaten){
     int currently_eaten = 0;
     mutex_lock(&lock);
     cond_wait(&dish_empty, &lock);
-    currently_eaten += 1;
     worm_num -= 1;
-    printf("Baby bird %d ate a worm! (%d total)\n", which_baby, currently_eaten);
+    currently_eaten ++;
+    kprintf("Baby bird %d ate a worm! (%d total)\n", which_baby, currently_eaten);
 
     if(worm_num == 0){
       cond_signal(&time_to_fetch);
