@@ -81,3 +81,9 @@ extern  shellcmd xsh_mmu	(int32, char *[]);
 
 /* in file xsh_babybird.c */
 extern shellcmd xsh_babybird  (int32, char *[]);
+
+/* in file xsh_dining_philosophers.c */
+extern shellcmd xsh_dining_philosophers	(int32, char *[]);
+
+/* in file xsh_prodcons.c */
+extern shellcmd xsh_prodcons (int32, char *[]);

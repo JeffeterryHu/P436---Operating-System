@@ -1,6 +1,8 @@
 #ifndef _FUTURE_H_
 #define _FUTURE_H_
 
+#include <xinu.h>
+
 typedef enum {
   FUTURE_EMPTY,
   FUTURE_WAITING,
