@@ -1,0 +1,18 @@
+Assignment 6
+
+Exercise:
+9.1
+  Write a function that walks the list of free memory blocks and prints a line with the address and length of each block.
+
+  it asks us to print all the free memory blocks available. The function wrote is xsh_findfreemem(), it accesses the memblock structure and traverse the entire linked list and then prints the length.
+
+9.4
+  Replace the low-level memory management functions with a set of functions that allocate heap and stack memory permanently. How do the sizes of the new allocation routines compare to the sizes of getstk and getmem?
+
+  compare:
+    default memory allocation the getmem start allocating from the highest memory block and getstk starts allocating from the lowest memory block, converging to each other as the memory is consumed. The new function will find the best fit in both cases. And the function created is getmemNEW.c and getstkNEW.c
+
+9.7
+  Many embedded systems go through a prototype stage, in which the system is build on a general platform, and a final stage, in which minimal hardware is designed for the system. In terms of memory management, one question concerns the size of the stack needed by each process. Modify the code to allow the system to measure the maximum stack space used by a process and report the maximum stack size when the process exits.
+
+  modified kill.c file, and the code will print the actual memory used by a process with comparison to max memory allocated.
