@@ -5,7 +5,7 @@
 
 #include <xinu.h>
 
-shellcmd xsh_mem(int nargs, char *argv[]){
+shellcmd xsh_findfreemem(int nargs, char *argv[]){
 
 	struct memblk *curr;
 	curr = memlist.mnext;
